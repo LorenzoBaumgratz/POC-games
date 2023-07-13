@@ -27,7 +27,7 @@ export async function updateGame(req: Request,res:Response) {
     const {id}=req.params 
 
     try {
-        await updateGameRep(value,id)
+        await updateGameRep(value,parseInt(id))
         return res.sendStatus(202)
     } catch (err) {
         res.status(500).send(err.message)
@@ -37,7 +37,7 @@ export async function updateGame(req: Request,res:Response) {
 export async function deleteGame(req: Request,res:Response) {
     const {id}=req.params
     try {
-        await deleteGameRep(id)
+        await deleteGameRep(parseInt(id))
         return res.sendStatus(200)
     } catch (err) {
         res.status(500).send(err.message)
